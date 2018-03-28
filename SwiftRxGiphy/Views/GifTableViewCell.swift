@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class GifTableViewCell: UITableViewCell {
+    static let identifier = "GifTableViewCell"
+    
     private var isTrended = false
     private let viewInsets: CGFloat = 5.0
     private var gifImageViewHeight: NSLayoutConstraint?
