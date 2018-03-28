@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(Gifka)
 class Gifka: NSManagedObject {
     @NSManaged var name: String
 }

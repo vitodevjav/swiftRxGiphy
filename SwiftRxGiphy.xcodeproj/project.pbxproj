@@ -11,6 +11,7 @@
 		75032B39206C051B00344249 /* Gifka.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75032B38206C051B00344249 /* Gifka.swift */; };
 		75032B3E206C06F700344249 /* EntityDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75032B3C206C06F700344249 /* EntityDataModel.xcdatamodeld */; };
 		751AFF96206AC0F0000F241B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AFF95206AC0F0000F241B /* SearchViewController.swift */; };
+		759A0F7F206C0C8100935364 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A0F7E206C0C8100935364 /* DataController.swift */; };
 		998C5AF1928C0AB500DE9BB3 /* Pods_SwiftRxGiphy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE73B193041891C3FA309C5C /* Pods_SwiftRxGiphy.framework */; };
 		B01F0FA72068367200AA7B50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01F0FA62068367200AA7B50 /* AppDelegate.swift */; };
 		B01F0FAE2068367200AA7B50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B01F0FAD2068367200AA7B50 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 		75032B38206C051B00344249 /* Gifka.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gifka.swift; sourceTree = "<group>"; };
 		75032B3D206C06F700344249 /* EntityDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EntityDataModel.xcdatamodel; sourceTree = "<group>"; };
 		751AFF95206AC0F0000F241B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		759A0F7E206C0C8100935364 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		78859C367F2301F6B4560731 /* Pods-SwiftRxGiphy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRxGiphy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftRxGiphy/Pods-SwiftRxGiphy.debug.xcconfig"; sourceTree = "<group>"; };
 		B01F0FA32068367100AA7B50 /* SwiftRxGiphy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRxGiphy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B01F0FA62068367200AA7B50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		759A0F7D206C0C6400935364 /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				759A0F7E206C0C8100935364 /* DataController.swift */,
+			);
+			path = CoreDataStack;
+			sourceTree = "<group>";
+		};
 		B01F0F9A2068367100AA7B50 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +108,7 @@
 		B01F0FA52068367200AA7B50 /* SwiftRxGiphy */ = {
 			isa = PBXGroup;
 			children = (
+				759A0F7D206C0C6400935364 /* CoreDataStack */,
 				75032B34206C019D00344249 /* Models */,
 				75032B31206BF87200344249 /* UIElements */,
 				751AFF94206AC0A0000F241B /* Controllers */,
@@ -250,6 +261,7 @@
 			files = (
 				75032B3E206C06F700344249 /* EntityDataModel.xcdatamodeld in Sources */,
 				751AFF96206AC0F0000F241B /* SearchViewController.swift in Sources */,
+				759A0F7F206C0C8100935364 /* DataController.swift in Sources */,
 				75032B39206C051B00344249 /* Gifka.swift in Sources */,
 				B01F0FA72068367200AA7B50 /* AppDelegate.swift in Sources */,
 				75032B33206BF89E00344249 /* GifTableViewCell.swift in Sources */,
