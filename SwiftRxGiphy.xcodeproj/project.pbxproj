@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		75032B33206BF89E00344249 /* GifTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75032B32206BF89E00344249 /* GifTableViewCell.swift */; };
+		75032B39206C051B00344249 /* Gifka.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75032B38206C051B00344249 /* Gifka.swift */; };
+		75032B3E206C06F700344249 /* EntityDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75032B3C206C06F700344249 /* EntityDataModel.xcdatamodeld */; };
 		751AFF96206AC0F0000F241B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AFF95206AC0F0000F241B /* SearchViewController.swift */; };
 		998C5AF1928C0AB500DE9BB3 /* Pods_SwiftRxGiphy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE73B193041891C3FA309C5C /* Pods_SwiftRxGiphy.framework */; };
 		B01F0FA72068367200AA7B50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01F0FA62068367200AA7B50 /* AppDelegate.swift */; };
@@ -17,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		75032B32206BF89E00344249 /* GifTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifTableViewCell.swift; sourceTree = "<group>"; };
+		75032B38206C051B00344249 /* Gifka.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gifka.swift; sourceTree = "<group>"; };
+		75032B3D206C06F700344249 /* EntityDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EntityDataModel.xcdatamodel; sourceTree = "<group>"; };
 		751AFF95206AC0F0000F241B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		78859C367F2301F6B4560731 /* Pods-SwiftRxGiphy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRxGiphy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftRxGiphy/Pods-SwiftRxGiphy.debug.xcconfig"; sourceTree = "<group>"; };
 		B01F0FA32068367100AA7B50 /* SwiftRxGiphy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRxGiphy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +60,15 @@
 			path = UIElements;
 			sourceTree = "<group>";
 		};
+		75032B34206C019D00344249 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				75032B38206C051B00344249 /* Gifka.swift */,
+				75032B3C206C06F700344249 /* EntityDataModel.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		751AFF94206AC0A0000F241B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +98,7 @@
 		B01F0FA52068367200AA7B50 /* SwiftRxGiphy */ = {
 			isa = PBXGroup;
 			children = (
+				75032B34206C019D00344249 /* Models */,
 				75032B31206BF87200344249 /* UIElements */,
 				751AFF94206AC0A0000F241B /* Controllers */,
 				B01F0FA62068367200AA7B50 /* AppDelegate.swift */,
@@ -234,7 +248,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75032B3E206C06F700344249 /* EntityDataModel.xcdatamodeld in Sources */,
 				751AFF96206AC0F0000F241B /* SearchViewController.swift in Sources */,
+				75032B39206C051B00344249 /* Gifka.swift in Sources */,
 				B01F0FA72068367200AA7B50 /* AppDelegate.swift in Sources */,
 				75032B33206BF89E00344249 /* GifTableViewCell.swift in Sources */,
 			);
@@ -415,6 +431,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		75032B3C206C06F700344249 /* EntityDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				75032B3D206C06F700344249 /* EntityDataModel.xcdatamodel */,
+			);
+			currentVersion = 75032B3D206C06F700344249 /* EntityDataModel.xcdatamodel */;
+			path = EntityDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B01F0F9B2068367100AA7B50 /* Project object */;
 }
