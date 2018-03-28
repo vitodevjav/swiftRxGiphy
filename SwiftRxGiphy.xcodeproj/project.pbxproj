@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75032B33206BF89E00344249 /* GifTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75032B32206BF89E00344249 /* GifTableViewCell.swift */; };
+		751AFF96206AC0F0000F241B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AFF95206AC0F0000F241B /* SearchViewController.swift */; };
 		998C5AF1928C0AB500DE9BB3 /* Pods_SwiftRxGiphy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE73B193041891C3FA309C5C /* Pods_SwiftRxGiphy.framework */; };
 		B01F0FA72068367200AA7B50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01F0FA62068367200AA7B50 /* AppDelegate.swift */; };
 		B01F0FAE2068367200AA7B50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B01F0FAD2068367200AA7B50 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75032B32206BF89E00344249 /* GifTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifTableViewCell.swift; sourceTree = "<group>"; };
+		751AFF95206AC0F0000F241B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		78859C367F2301F6B4560731 /* Pods-SwiftRxGiphy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRxGiphy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftRxGiphy/Pods-SwiftRxGiphy.debug.xcconfig"; sourceTree = "<group>"; };
 		B01F0FA32068367100AA7B50 /* SwiftRxGiphy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRxGiphy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B01F0FA62068367200AA7B50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +48,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		75032B31206BF87200344249 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				75032B32206BF89E00344249 /* GifTableViewCell.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		751AFF94206AC0A0000F241B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				751AFF95206AC0F0000F241B /* SearchViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		B01F0F9A2068367100AA7B50 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +85,8 @@
 		B01F0FA52068367200AA7B50 /* SwiftRxGiphy */ = {
 			isa = PBXGroup;
 			children = (
+				75032B31206BF87200344249 /* UIElements */,
+				751AFF94206AC0A0000F241B /* Controllers */,
 				B01F0FA62068367200AA7B50 /* AppDelegate.swift */,
 				B01F0FAD2068367200AA7B50 /* Assets.xcassets */,
 				B01F0FAF2068367200AA7B50 /* LaunchScreen.storyboard */,
@@ -212,7 +234,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				751AFF96206AC0F0000F241B /* SearchViewController.swift in Sources */,
 				B01F0FA72068367200AA7B50 /* AppDelegate.swift in Sources */,
+				75032B33206BF89E00344249 /* GifTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
