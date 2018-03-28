@@ -1,0 +1,6 @@
+framework module Pods_SwiftRxGiphy {
+  umbrella header "Pods-SwiftRxGiphy-umbrella.h"
+
+  export *
+  module * { export * }
+}
