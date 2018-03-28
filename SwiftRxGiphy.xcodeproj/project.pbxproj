@@ -56,14 +56,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		75032B31206BF87200344249 /* UIElements */ = {
-			isa = PBXGroup;
-			children = (
-				75032B32206BF89E00344249 /* GifTableViewCell.swift */,
-			);
-			path = UIElements;
-			sourceTree = "<group>";
-		};
 		75032B34206C019D00344249 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				75F458D4206C1F2100373CBB /* SearchView.swift */,
+				75032B32206BF89E00344249 /* GifTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,7 +114,6 @@
 				75F458D3206C1F0A00373CBB /* Views */,
 				759A0F7D206C0C6400935364 /* CoreDataStack */,
 				75032B34206C019D00344249 /* Models */,
-				75032B31206BF87200344249 /* UIElements */,
 				751AFF94206AC0A0000F241B /* Controllers */,
 				B01F0FA62068367200AA7B50 /* AppDelegate.swift */,
 				B01F0FAD2068367200AA7B50 /* Assets.xcassets */,
