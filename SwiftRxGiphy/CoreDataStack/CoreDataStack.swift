@@ -9,10 +9,15 @@
 import Foundation
 import CoreData
 
-class DataController: NSObject {
-    private var сontext: NSManagedObjectContext
+class CoreDataStack {
 
-    override init() {
+    static let shared = {
+        return CoreDataStack()
+    }
+
+    let context: NSManagedObjectContext
+
+    private init() {
         guard let modelURL = Bundle.main.url(forResource: "EntityDataModel", withExtension:"momd") else {
             fatalError("Error loading model from bundle")
         }
@@ -23,8 +28,8 @@ class DataController: NSObject {
 
         let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
 
-        сontext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
-        сontext.persistentStoreCoordinator = persistentStoreCoordinator
+        context = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
+        context.persistentStoreCoordinator = persistentStoreCoordinator
 
         guard let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last else {
             fatalError("Unable to resolve document directory")
