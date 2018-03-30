@@ -32,6 +32,7 @@ class SearchView: UIView {
 
         addSubview(tableView)
         addSubview(searchBar)
+        configureConstraints()
     }
 
     required init?(coder aDecoder: NSCoder) {
