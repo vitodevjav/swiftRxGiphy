@@ -10,4 +10,20 @@ import Foundation
 
 class NetworkController {
 
+    func searchImages(requestType: RequestType = .trended, requestedName: String? = nil, contentSize: Int = 20, offset: Int = 0) {
+        let request = RequestBuilder(requestType: requestType,
+                                     requestedName: requestedName,
+                                     contentSize: contentSize,
+                                     offset: offset)
+            .build()
+
+        sendRequest(request)
+    }
+
+    private func sendRequest(_ request: URLRequest) {
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard error != nil else { return }
+
+        }
+    }
 }
