@@ -32,6 +32,7 @@ class SearchView: UIView {
 
         addSubview(tableView)
         addSubview(searchBar)
+        configureConstraints()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -39,15 +40,15 @@ class SearchView: UIView {
     }
 
     private func configureConstraints() {
-        NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: topAnchor, constant: viewInsets),
-                                     searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: viewInsets),
-                                     searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -viewInsets),
+        NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: viewInsets),
+                                     searchBar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: viewInsets),
+                                     searchBar.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -viewInsets),
                                      searchBar.heightAnchor.constraint(equalToConstant: searchBarHeight),
 
                                      tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: verticalViewMargin),
-                                     tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: viewInsets),
-                                     tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -viewInsets),
-                                     tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: viewInsets)
+                                     tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: viewInsets),
+                                     tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -viewInsets),
+                                     tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: viewInsets)
                                      ])
     }
 }

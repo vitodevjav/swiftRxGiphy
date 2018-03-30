@@ -22,8 +22,4 @@ class SearchViewController: UIViewController {
     override func loadView() {
         view = SearchView()
     }
-
-    private func configureConstraints() {
-
-    }
 }
