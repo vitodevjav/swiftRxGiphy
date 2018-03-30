@@ -17,7 +17,8 @@ class NetworkController {
                                      offset: offset)
             .build()
 
-        sendRequest(request)
+        guard let searchRequest = request else { return }
+        sendRequest(searchRequest)
     }
 
     private func sendRequest(_ request: URLRequest) {
