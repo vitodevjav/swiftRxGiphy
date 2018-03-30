@@ -11,6 +11,7 @@ import Foundation
 struct RequestBuilder {
     private let apiKey = "ydW1gRhQ50p3hk74lioamIoTzIK6Clg4"
     private let hostName = "http://api.giphy.com/v1/gifs/"
+    let requestType: RequestType
     let requestedName: String?
     let contentSize: Int?
     let offset: Int?

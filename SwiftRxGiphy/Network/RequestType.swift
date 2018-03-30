@@ -9,5 +9,6 @@
 import Foundation
 
 enum RequestType {
-    
+    case search
+    case trended
 }
