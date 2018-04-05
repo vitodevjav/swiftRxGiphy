@@ -10,11 +10,12 @@ import Foundation
 
 class NetworkController {
 
-    func searchImages(requestType: RequestType = .trended, requestedName: String? = nil, contentSize: Int = 20, offset: Int = 0) {
+    func searchImages(requestType: RequestType = .trended, requestedName: String? = nil, contentSize: ContentSize = .defaultSize, offset: Int = 0, rating: GifRating? = nil) {
         let request = RequestBuilder(requestType: requestType,
-                                     requestedName: requestedName,
+                                     searchTerm: requestedName,
                                      contentSize: contentSize,
-                                     offset: offset)
+                                     offset: offset,
+                                     rating: rating)
             .build()
 
         guard let searchRequest = request else { return }

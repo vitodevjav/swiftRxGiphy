@@ -13,17 +13,17 @@ struct RequestBuilder {
     private let hostName = "http://api.giphy.com/v1/gifs/"
     let requestType: RequestType
     let searchTerm: String?
-    let contentSize: Int?
+    let contentSize: ContentSize
     let offset: Int?
-    let rating: GifRating
+    let rating: GifRating?
 
     func build() -> URLRequest? {
         var urlComponents = URLComponents.init(string: hostName)
         urlComponents?.queryItems = [URLQueryItem(name: "apiKey", value: apiKey),
                                      URLQueryItem(name: "q", value: searchTerm),
-                                     URLQueryItem(name: "limit", value: String(describing: contentSize)),
-                                     URLQueryItem(name: "offset", value:  String(describing: searchTerm)),
-                                     URLQueryItem(name: "rating", value: rating.rawValue),
+                                     URLQueryItem(name: "limit", value: String(describing: contentSize.rawValue)),
+                                     URLQueryItem(name: "offset", value:  String(describing: offset ?? 0) ),
+                                     URLQueryItem(name: "rating", value: rating?.rawValue),
         ]
         guard let url = urlComponents?.url else { return nil }
 
