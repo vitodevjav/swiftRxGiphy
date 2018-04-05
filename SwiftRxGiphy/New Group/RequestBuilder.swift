@@ -15,7 +15,7 @@ struct RequestBuilder {
     let searchTerm: String?
     let contentSize: Int?
     let offset: Int?
-    let rating: String?
+    let rating: GifRating
 
     func build() -> URLRequest? {
         var urlComponents = URLComponents.init(string: hostName)
@@ -23,7 +23,7 @@ struct RequestBuilder {
                                      URLQueryItem(name: "q", value: searchTerm),
                                      URLQueryItem(name: "limit", value: String(describing: contentSize)),
                                      URLQueryItem(name: "offset", value:  String(describing: searchTerm)),
-                                     URLQueryItem(name: "rating", value: searchTerm),
+                                     URLQueryItem(name: "rating", value: rating.rawValue),
         ]
         guard let url = urlComponents?.url else { return nil }
 
