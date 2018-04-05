@@ -13,13 +13,18 @@ import RxCocoa
 
 protocol TableViewRxDataSource {
     var items: Variable<[Gifka]> { get }
-    func fetch (with searchTerm: String?)
+    func fetch (with searchTerm: String?, isTrended: Bool)
 }
 
 class SearchViewController: UIViewController {
     var interactor: TableViewRxDataSource?
 
+    private var searchTerm: Variable<String>
+    private var isTrended: Variable<Bool>
+
     init() {
+        searchTerm = Variable("")
+        isTrended = Variable(false)
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -30,6 +35,11 @@ class SearchViewController: UIViewController {
 
     override func loadView() {
         view = SearchView()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureView()
     }
 
     func configureView() {
@@ -46,8 +56,22 @@ class SearchViewController: UIViewController {
         view.searchBar.rx.text.changed
             .throttle(0.3, scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] value in
-                self?.interactor?.fetch(with: value)
+                self?.searchTerm.value = value ?? ""
             })
+            .disposed(by: disposeBag)
+
+        view.trendedSwitch.rx.isOn
+            .subscribe(onNext: { [weak self] value in
+                self?.isTrended.value = value
+            })
+            .disposed(by: disposeBag)
+
+        Observable.combineLatest(searchTerm.asObservable(),
+                                 isTrended.asObservable(),
+                                 resultSelector: { _, _ in
+        }).subscribe { _ in
+            self.interactor?.fetch(with: self.searchTerm.value, isTrended: self.isTrended.value)
+            }
             .disposed(by: disposeBag)
     }
 }
