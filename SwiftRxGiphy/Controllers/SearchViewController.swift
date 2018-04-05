@@ -13,6 +13,7 @@ import RxCocoa
 
 protocol TableViewRxDataSource {
     var items: Variable<[Gifka]> { get }
+    func fetch (with searchTerm: String?)
 }
 
 class SearchViewController: UIViewController {
@@ -31,7 +32,7 @@ class SearchViewController: UIViewController {
         view = SearchView()
     }
 
-    func configureTableView() {
+    func configureView() {
 
         guard let view = view as? SearchView else { return }
 
@@ -40,6 +41,13 @@ class SearchViewController: UIViewController {
             .bind(to: reactiveTable.items(cellIdentifier: "Cell", cellType: GifTableViewCell.self)) { row, element, cell in
                 cell.textLabel?.text = "\(element) @ row \(row)"
             }
+            .disposed(by: disposeBag)
+
+        view.searchBar.rx.text.changed
+            .throttle(0.3, scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] value in
+                self?.interactor?.fetch(with: value)
+            })
             .disposed(by: disposeBag)
     }
 }

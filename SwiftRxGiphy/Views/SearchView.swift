@@ -14,13 +14,13 @@ class SearchView: UIView {
     private let searchBarHeight: CGFloat = 40.0
     private let verticalViewMargin: CGFloat = 5.0
 
-    private lazy var searchBar: UISearchBar = {
+    lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()
 
-    var tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(GifTableViewCell.self, forCellReuseIdentifier: GifTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
