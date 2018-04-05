@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkController {
 
-    func searchImages(requestType: RequestType = .trended, requestedName: String? = nil, contentSize: ContentSize = .defaultSize, offset: Int = 0, rating: GifRating? = nil) {
+    func searchImages(requestType: RequestType = .trending, requestedName: String? = nil, contentSize: ContentSize = .defaultSize, offset: Int = 0, rating: GifRating? = nil) {
         let request = RequestBuilder(requestType: requestType,
                                      searchTerm: requestedName,
                                      contentSize: contentSize,
