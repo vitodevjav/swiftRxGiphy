@@ -20,7 +20,7 @@ class SearchView: UIView {
         return searchBar
     }()
 
-    private lazy var tableView: UITableView = {
+    var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(GifTableViewCell.self, forCellReuseIdentifier: GifTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
