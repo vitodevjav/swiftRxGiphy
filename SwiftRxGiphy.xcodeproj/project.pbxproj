@@ -13,6 +13,7 @@
 		751AFF96206AC0F0000F241B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AFF95206AC0F0000F241B /* SearchViewController.swift */; };
 		759A0F7F206C0C8100935364 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A0F7E206C0C8100935364 /* CoreDataStack.swift */; };
 		759C5D4520768F8B0072DF2A /* SearchViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5D4420768F8B0072DF2A /* SearchViewInteractor.swift */; };
+		759C5D48207692D80072DF2A /* Network in Resources */ = {isa = PBXBuildFile; fileRef = 759C5D47207692D80072DF2A /* Network */; };
 		75F458D5206C1F2100373CBB /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F458D4206C1F2100373CBB /* SearchView.swift */; };
 		998C5AF1928C0AB500DE9BB3 /* Pods_SwiftRxGiphy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE73B193041891C3FA309C5C /* Pods_SwiftRxGiphy.framework */; };
 		B01F0FA72068367200AA7B50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01F0FA62068367200AA7B50 /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 		751AFF95206AC0F0000F241B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		759A0F7E206C0C8100935364 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		759C5D4420768F8B0072DF2A /* SearchViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewInteractor.swift; sourceTree = "<group>"; };
+		759C5D47207692D80072DF2A /* Network */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Network; path = SwiftRxGiphy/Network; sourceTree = SOURCE_ROOT; };
 		75F458D4206C1F2100373CBB /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		78859C367F2301F6B4560731 /* Pods-SwiftRxGiphy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRxGiphy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftRxGiphy/Pods-SwiftRxGiphy.debug.xcconfig"; sourceTree = "<group>"; };
 		B01F0FA32068367100AA7B50 /* SwiftRxGiphy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRxGiphy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 		B01F0FA52068367200AA7B50 /* SwiftRxGiphy */ = {
 			isa = PBXGroup;
 			children = (
+				759C5D47207692D80072DF2A /* Network */,
 				75F458D3206C1F0A00373CBB /* Views */,
 				759A0F7D206C0C6400935364 /* CoreDataStack */,
 				75032B34206C019D00344249 /* Models */,
@@ -197,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				759C5D48207692D80072DF2A /* Network in Resources */,
 				B01F0FB12068367200AA7B50 /* LaunchScreen.storyboard in Resources */,
 				B01F0FAE2068367200AA7B50 /* Assets.xcassets in Resources */,
 			);
