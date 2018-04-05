@@ -24,9 +24,13 @@ class NetworkController {
 
     private func sendRequest(_ request: URLRequest) {
 
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard error != nil else { return }
-
+		URLSession.shared.dataTask(with: request) { data, response, error in
+			guard error == nil,
+				let responseData = data,
+				let jsonDictionary = try? JSONSerialization.jsonObject(with: responseData) as? [String: Any]
+				else { return }
+			
+				
             }.resume()
     }
 }
