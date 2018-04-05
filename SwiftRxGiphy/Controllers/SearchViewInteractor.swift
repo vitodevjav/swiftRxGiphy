@@ -12,6 +12,10 @@ import RxCocoa
 
 class SearchViewInteractor {
     private var data: Variable<[Gifka]>
+    private var currentOffset = 0
+
+    private let networkController = NetworkController()
+
     init() {
         data = Variable([])
     }
@@ -19,7 +23,7 @@ class SearchViewInteractor {
 
 extension SearchViewInteractor: TableViewRxDataSource {
     func fetch(with searchTerm: String? = "") {
-        
+        networkController.searchImages(requestType: .trended, requestedName: searchTerm, contentSize: 20, offset: currentOffset)
     }
 
     var items: Variable<[Gifka]> { return data }
