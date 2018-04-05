@@ -27,6 +27,8 @@ struct RequestBuilder {
         ]
         guard let url = urlComponents?.url else { return nil }
 
-        return URLRequest(url: url)
+		var request = URLRequest(url: url)
+		request.httpMethod = HTTPMethod.GET.rawValue
+        return request	
     }
 }
