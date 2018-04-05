@@ -18,5 +18,10 @@ class SearchViewInteractor {
 }
 
 extension SearchViewInteractor: TableViewRxDataSource {
+    func fetch(with searchTerm: String? = "") {
+        
+    }
+
     var items: Variable<[Gifka]> { return data }
 }
+
