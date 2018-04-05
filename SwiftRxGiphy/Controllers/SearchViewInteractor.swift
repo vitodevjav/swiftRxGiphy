@@ -23,7 +23,7 @@ class SearchViewInteractor {
 }
 
 extension SearchViewInteractor: TableViewRxDataSource {
-    func fetch(with searchTerm: String? = "") {
+    func fetch(with searchTerm: String?, isTrended: Bool) {
         networkController.searchImages(requestType: .trended, requestedName: searchTerm, contentSize: contentSize.rawValue, offset: currentOffset)
     }
 
