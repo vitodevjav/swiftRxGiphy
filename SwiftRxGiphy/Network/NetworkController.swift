@@ -26,11 +26,13 @@ class NetworkController {
 
 		URLSession.shared.dataTask(with: request) { data, response, error in
 			guard error == nil,
-				let responseData = data,
-				let jsonDictionary = try? JSONSerialization.jsonObject(with: responseData) as? [String: Any]
+				let responseData = data
 				else { return }
 			
-				
+			let decoder = JSONDecoder()
+			decoder.dateDecodingStrategy = .formatted(DateFormatter.giphyFormatter)
+			
+			let giphyResponse = try? decoder.decode(GIPHYResponse.self, from: responseData)
             }.resume()
     }
 }
