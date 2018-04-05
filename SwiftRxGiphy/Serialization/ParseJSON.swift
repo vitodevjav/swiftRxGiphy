@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol JSONObject {
-	func parse()
-}
-
 struct GIPHYResponse: Decodable {
 	
 	var data: [FailableDecodable<GIPHYData>] = []

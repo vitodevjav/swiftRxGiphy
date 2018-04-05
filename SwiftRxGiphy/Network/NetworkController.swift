@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
 
 class NetworkController {
 
-    func searchImages(requestType: RequestType = .trending, requestedName: String? = nil, contentSize: ContentSize = .defaultSize, offset: Int = 0, rating: GifRating? = nil) {
+	func searchImages(requestType: RequestType = .trending, requestedName: String? = nil, contentSize: ContentSize = .defaultSize, offset: Int = 0, rating: GifRating? = nil) -> Observable<Any>? {
         let request = RequestBuilder(requestType: requestType,
                                      searchTerm: requestedName,
                                      contentSize: contentSize,
@@ -18,21 +20,35 @@ class NetworkController {
                                      rating: rating)
             .build()
 
-        guard let searchRequest = request else { return }
-        sendRequest(searchRequest)
+        guard let searchRequest = request else { return nil }
+        return sendRequest(searchRequest)
     }
-
-    private func sendRequest(_ request: URLRequest) {
-
-		URLSession.shared.dataTask(with: request) { data, response, error in
-			guard error == nil,
-				let responseData = data
-				else { return }
-			
-			let decoder = JSONDecoder()
-			decoder.dateDecodingStrategy = .formatted(DateFormatter.giphyFormatter)
-			
-			let giphyResponse = try? decoder.decode(GIPHYResponse.self, from: responseData)
-            }.resume()
-    }
+	
+	private func sendRequest(_ request: URLRequest) -> Observable<Any> {
+		return Observable<Any>.create { observer in
+			let task: URLSessionDataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+				guard error == nil,
+					let responseData = data
+					else {
+						observer.onError(error!)
+						return
+				}
+				
+				let decoder = JSONDecoder()
+				decoder.dateDecodingStrategy = .formatted(DateFormatter.giphyFormatter)
+				
+				let giphyResponse = try? decoder.decode(GIPHYResponse.self, from: responseData)
+				let gifs = giphyResponse?.data.map {
+					
+				}
+				observer.onNext(giphyResponse)
+				observer.onCompleted()
+				}
+			task.resume()
+			return Disposables.create {
+				task.cancel()
+			}
+		}
+	}
+	
 }
