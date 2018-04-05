@@ -17,14 +17,15 @@ protocol TableViewRxDataSource {
 }
 
 class SearchViewController: UIViewController {
-    var interactor: TableViewRxDataSource?
 
+    private let interactor: TableViewRxDataSource?
     private var searchTerm: Variable<String>
     private var isTrended: Variable<Bool>
 
     init() {
         searchTerm = Variable("")
         isTrended = Variable(false)
+        interactor = SearchViewInteractor()
         super.init(nibName: nil, bundle: nil)
     }
 

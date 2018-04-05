@@ -22,9 +22,10 @@ class NetworkController {
     }
 
     private func sendRequest(_ request: URLRequest) {
+
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard error != nil else { return }
 
-        }
+            }.resume()
     }
 }
