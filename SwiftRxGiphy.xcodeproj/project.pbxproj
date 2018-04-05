@@ -24,6 +24,7 @@
 		B01F0FAE2068367200AA7B50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B01F0FAD2068367200AA7B50 /* Assets.xcassets */; };
 		B01F0FB12068367200AA7B50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B01F0FAF2068367200AA7B50 /* LaunchScreen.storyboard */; };
 		B0C559472076C183005F99CB /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C559462076C183005F99CB /* HttpMethod.swift */; };
+		B0C5594A2076C9A6005F99CB /* ParseJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C559492076C9A6005F99CB /* ParseJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		B01F0FB02068367200AA7B50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B01F0FB22068367200AA7B50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0C559462076C183005F99CB /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		B0C559492076C9A6005F99CB /* ParseJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseJSON.swift; sourceTree = "<group>"; };
 		B55EC131CB95D0A90DB32C23 /* Pods-SwiftRxGiphy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRxGiphy.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftRxGiphy/Pods-SwiftRxGiphy.release.xcconfig"; sourceTree = "<group>"; };
 		DE73B193041891C3FA309C5C /* Pods_SwiftRxGiphy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftRxGiphy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -106,8 +108,7 @@
 				759C5D4A2076A3560072DF2A /* NetworkController.swift */,
 				B0C559462076C183005F99CB /* HttpMethod.swift */,
 			);
-			name = Network;
-			path = "New Group";
+			path = Network;
 			sourceTree = "<group>";
 		};
 		75F458D3206C1F0A00373CBB /* Views */ = {
@@ -140,6 +141,7 @@
 		B01F0FA52068367200AA7B50 /* SwiftRxGiphy */ = {
 			isa = PBXGroup;
 			children = (
+				B0C559482076C97F005F99CB /* Serialization */,
 				759C5D492076A33C0072DF2A /* Network */,
 				75F458D3206C1F0A00373CBB /* Views */,
 				759A0F7D206C0C6400935364 /* CoreDataStack */,
@@ -151,6 +153,14 @@
 				B01F0FB22068367200AA7B50 /* Info.plist */,
 			);
 			path = SwiftRxGiphy;
+			sourceTree = "<group>";
+		};
+		B0C559482076C97F005F99CB /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				B0C559492076C9A6005F99CB /* ParseJSON.swift */,
+			);
+			path = Serialization;
 			sourceTree = "<group>";
 		};
 		FD55FC0058CBCC5A9DCB3956 /* Pods */ = {
@@ -306,6 +316,7 @@
 				75032B33206BF89E00344249 /* GifTableViewCell.swift in Sources */,
 				759C5D4B2076A3560072DF2A /* NetworkController.swift in Sources */,
 				75F945E52076AF2D00380127 /* GifRating.swift in Sources */,
+				B0C5594A2076C9A6005F99CB /* ParseJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
