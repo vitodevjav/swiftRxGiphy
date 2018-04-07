@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum RequestType {
+enum RequestType: String {
     case search
-    case trended
+    case trending
 }

@@ -24,7 +24,7 @@ class SearchViewInteractor {
 
 extension SearchViewInteractor: TableViewRxDataSource {
     func fetch(with searchTerm: String?, isTrended: Bool) {
-        networkController.searchImages(requestType: .trended, requestedName: searchTerm, contentSize: contentSize.rawValue, offset: currentOffset)
+        networkController.searchImages(requestType: .trending, requestedName: searchTerm, contentSize: contentSize, offset: currentOffset)
     }
 
     var items: Variable<[Gifka]> { return data }
