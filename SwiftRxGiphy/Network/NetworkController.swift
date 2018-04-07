@@ -12,7 +12,7 @@ import RxSwift
 
 class NetworkController {
 
-	func searchImages(requestType: RequestType = .trending, requestedName: String? = nil, contentSize: ContentSize = .defaultSize, offset: Int = 0, rating: GifRating? = nil) -> Observable<[GIPHYData]>? {
+	func searchImages(requestType: RequestType = .trending, requestedName: String? = nil, contentSize: ContentSize = .defaultSize, offset: Int = 0, rating: GifRating? = nil) -> Observable<[GIPHYData]> {
         let request = RequestBuilder(requestType: requestType,
                                      searchTerm: requestedName,
                                      contentSize: contentSize,
@@ -20,8 +20,8 @@ class NetworkController {
                                      rating: rating)
             .build()
 
-        guard let searchRequest = request else { return nil }
-        return sendRequest(searchRequest)
+//        guard let searchRequest = request else { return Observable.never() }
+        return sendRequest(request!)
     }
 	
 	private func sendRequest(_ request: URLRequest) -> Observable<[GIPHYData]> {
