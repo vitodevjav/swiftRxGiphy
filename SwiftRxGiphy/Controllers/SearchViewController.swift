@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 
 protocol TableViewRxDataSource {
-    var items: Variable<[Gifka]> { get }
+    var items: Variable<[GIPHYData]> { get }
     func fetch (with searchTerm: String?, isTrended: Bool)
 }
 

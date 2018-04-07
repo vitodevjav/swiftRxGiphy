@@ -12,7 +12,7 @@ import RxSwift
 
 class NetworkController {
 
-	func searchImages(requestType: RequestType = .trending, requestedName: String? = nil, contentSize: ContentSize = .defaultSize, offset: Int = 0, rating: GifRating? = nil) -> Observable<Any>? {
+	func searchImages(requestType: RequestType = .trending, requestedName: String? = nil, contentSize: ContentSize = .defaultSize, offset: Int = 0, rating: GifRating? = nil) -> Observable<[GIPHYData]>? {
         let request = RequestBuilder(requestType: requestType,
                                      searchTerm: requestedName,
                                      contentSize: contentSize,
@@ -24,8 +24,8 @@ class NetworkController {
         return sendRequest(searchRequest)
     }
 	
-	private func sendRequest(_ request: URLRequest) -> Observable<Any> {
-		return Observable<Any>.create { observer in
+	private func sendRequest(_ request: URLRequest) -> Observable<[GIPHYData]> {
+		return Observable<[GIPHYData]>.create { observer in
 			let task: URLSessionDataTask = URLSession.shared.dataTask(with: request) { data, response, error in
 				guard error == nil,
 					let responseData = data
@@ -37,11 +37,16 @@ class NetworkController {
 				let decoder = JSONDecoder()
 				decoder.dateDecodingStrategy = .formatted(DateFormatter.giphyFormatter)
 				
-				let giphyResponse = try? decoder.decode(GIPHYResponse.self, from: responseData)
-				let gifs = giphyResponse?.data.map {
-					
+				guard let giphyResponse = try? decoder.decode(GIPHYResponse.self, from: responseData) else {
+					observer.onCompleted()
+					return
 				}
-				observer.onNext(giphyResponse)
+			
+				let gifs = giphyResponse.data
+					.filter { $0.base != nil }
+					.map { $0.base! }
+				
+				observer.onNext(gifs)
 				observer.onCompleted()
 				}
 			task.resume()
