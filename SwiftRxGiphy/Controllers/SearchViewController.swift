@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 
 protocol TableViewRxDataSource {
-    var items: Variable<[Gifka]> { get }
+    var items: Variable<[GIPHYData]> { get }
     func fetch (with searchTerm: String?, isTrended: Bool)
 }
 
@@ -49,7 +49,7 @@ class SearchViewController: UIViewController {
 
         let reactiveTable = view.tableView.rx
         interactor?.items.asObservable()
-            .bind(to: reactiveTable.items(cellIdentifier: "Cell", cellType: GifTableViewCell.self)) { row, element, cell in
+            .bind(to: reactiveTable.items(cellIdentifier: GifTableViewCell.identifier, cellType: GifTableViewCell.self)) { row, element, cell in
                 cell.textLabel?.text = "\(element) @ row \(row)"
             }
             .disposed(by: disposeBag)

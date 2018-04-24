@@ -11,8 +11,9 @@ import RxCocoa
 import RxSwift
 
 class NetworkController {
+    private let session = URLSession(configuration: .ephemeral)
 
-	func searchImages(requestType: RequestType = .trending, requestedName: String? = nil, contentSize: ContentSize = .defaultSize, offset: Int = 0, rating: GifRating? = nil) -> Observable<Any>? {
+	func searchImages(requestType: RequestType = .trending, requestedName: String? = nil, contentSize: ContentSize = .defaultSize, offset: Int = 0, rating: GifRating? = nil) -> Observable<[GIPHYData]> {
         let request = RequestBuilder(requestType: requestType,
                                      searchTerm: requestedName,
                                      contentSize: contentSize,
@@ -20,35 +21,40 @@ class NetworkController {
                                      rating: rating)
             .build()
 
-        guard let searchRequest = request else { return nil }
+        guard let searchRequest = request else { return Observable.never() }
         return sendRequest(searchRequest)
     }
 	
-	private func sendRequest(_ request: URLRequest) -> Observable<Any> {
-		return Observable<Any>.create { observer in
-			let task: URLSessionDataTask = URLSession.shared.dataTask(with: request) { data, response, error in
-				guard error == nil,
-					let responseData = data
-					else {
-						observer.onError(error!)
-						return
-				}
-				
-				let decoder = JSONDecoder()
-				decoder.dateDecodingStrategy = .formatted(DateFormatter.giphyFormatter)
-				
-				let giphyResponse = try? decoder.decode(GIPHYResponse.self, from: responseData)
-				let gifs = giphyResponse?.data.map {
-					
-				}
-				observer.onNext(giphyResponse)
-				observer.onCompleted()
-				}
-			task.resume()
-			return Disposables.create {
-				task.cancel()
-			}
-		}
-	}
-	
+    private func sendRequest(_ request: URLRequest) -> Observable<[GIPHYData]> {
+        return Observable<[GIPHYData]>.create { observer in
+            let task: URLSessionDataTask = self.session.dataTask(with: request) { data, response, error in
+                guard error == nil,
+                    let responseData = data
+                    else {
+                        observer.onError(error!)
+                        return
+                }
+
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .formatted(DateFormatter.giphyFormatter)
+
+                guard let giphyResponse = try? decoder.decode(GIPHYResponse.self, from: responseData) else {
+                    observer.onCompleted()
+                    return
+                }
+
+                let gifs = giphyResponse.data
+                    .filter { $0.base != nil }
+                    .map { $0.base! }
+
+                observer.onNext(gifs)
+                observer.onCompleted()
+            }
+            task.resume()
+            return Disposables.create {
+                task.cancel()
+            }
+        }
+    }
+
 }

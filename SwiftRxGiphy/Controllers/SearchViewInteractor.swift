@@ -11,9 +11,10 @@ import RxSwift
 import RxCocoa
 
 class SearchViewInteractor {
-    private var data: Variable<[Gifka]>
+    private var data: Variable<[GIPHYData]>
     private var currentOffset = 0
     private var contentSize: ContentSize = .defaultSize
+    private var disposeBag = DisposeBag()
 
     private let networkController = NetworkController()
 
@@ -23,10 +24,16 @@ class SearchViewInteractor {
 }
 
 extension SearchViewInteractor: TableViewRxDataSource {
+	var items: Variable<[GIPHYData]> {
+		return data
+	}
+	
     func fetch(with searchTerm: String?, isTrended: Bool) {
-        networkController.searchImages(requestType: .trending, requestedName: searchTerm, contentSize: contentSize, offset: currentOffset)
+		networkController.searchImages(requestType: .trending, requestedName: searchTerm, contentSize: contentSize, offset: currentOffset)
+			.subscribe(onNext: { value in
+				self.data.value = value
+			})
+			.disposed(by: disposeBag)
     }
-
-    var items: Variable<[Gifka]> { return data }
 }
 

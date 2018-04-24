@@ -11,6 +11,11 @@ import CoreData
 
 @objc(Gifka)
 class Gifka: NSManagedObject {
-    @NSManaged var name: String
+    @NSManaged var title: String
+	@NSManaged var url: String
+	@NSManaged var thumbnailUrl: String
+	@NSManaged var rating: String
+	@NSManaged var width: String
+	@NSManaged var height: String
 }
 
