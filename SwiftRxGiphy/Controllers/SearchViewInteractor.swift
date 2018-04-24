@@ -32,7 +32,7 @@ extension SearchViewInteractor: TableViewRxDataSource {
 			.subscribe(onNext: { value in
 				self.data.value = value
 			})
-			.dispose()
+			
     }
 }
 
