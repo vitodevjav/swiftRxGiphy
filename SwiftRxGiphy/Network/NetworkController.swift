@@ -21,8 +21,8 @@ class NetworkController {
                                      rating: rating)
             .build()
 
-//        guard let searchRequest = request else { return Observable.never() }
-        return sendRequest(request!)
+        guard let searchRequest = request else { return Observable.never() }
+        return sendRequest(searchRequest)
     }
 	
     private func sendRequest(_ request: URLRequest) -> Observable<[GIPHYData]> {
@@ -52,7 +52,7 @@ class NetworkController {
             }
             task.resume()
             return Disposables.create {
-                //                task.cancel()
+                task.cancel()
             }
         }
     }

@@ -14,6 +14,7 @@ class SearchViewInteractor {
     private var data: Variable<[GIPHYData]>
     private var currentOffset = 0
     private var contentSize: ContentSize = .defaultSize
+    private var disposeBag = DisposeBag()
 
     private let networkController = NetworkController()
 
@@ -32,7 +33,7 @@ extension SearchViewInteractor: TableViewRxDataSource {
 			.subscribe(onNext: { value in
 				self.data.value = value
 			})
-			
+			.disposed(by: disposeBag)
     }
 }
 
