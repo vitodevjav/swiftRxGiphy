@@ -10,7 +10,12 @@ import RxSwift
 import RxCocoa
 
 class Loader {
+    static let sharedInstance = Loader()
+
     private let session = URLSession(configuration: .ephemeral)
+    private init() {
+
+    }
 
     func loadData(with url: URL) -> Observable<Data> {
         return Observable<Data>.create { observer in
