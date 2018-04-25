@@ -38,6 +38,10 @@ class GifTableViewCell: UITableViewCell {
         gifImageViewHeight?.constant = 0.0
     }
 
+    public func configure(giphyData: GIPHYData) {
+//        gifImageView.image = UIImage.init giphyData.image.gifUrl
+    }
+
     private func configureConstraints() {
         let gifImageViewHeight = gifImageView.heightAnchor.constraint(equalToConstant: 0.0)
         NSLayoutConstraint.activate([gifImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: viewInsets),
