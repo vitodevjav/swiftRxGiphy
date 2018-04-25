@@ -49,8 +49,8 @@ class SearchViewController: UIViewController {
 
         let reactiveTable = view.tableView.rx
         interactor?.items.asObservable()
-            .bind(to: reactiveTable.items(cellIdentifier: GifTableViewCell.identifier, cellType: GifTableViewCell.self)) { row, element, cell in
-                cell.configure(element)
+            .bind(to: reactiveTable.items(cellIdentifier: GifTableViewCell.identifier, cellType: GifTableViewCell.self)) { row, giphy, cell in
+                cell.configure(with: giphy)
             }
             .disposed(by: disposeBag)
 

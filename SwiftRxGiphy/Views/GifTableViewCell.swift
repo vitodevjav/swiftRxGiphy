@@ -38,8 +38,13 @@ class GifTableViewCell: UITableViewCell {
         gifImageViewHeight?.constant = 0.0
     }
 
-    public func configure(giphyData: GIPHYData) {
-//        gifImageView.image = UIImage.init giphyData.image.gifUrl
+    public func configure(with giphy: GIPHYData) {
+        let url = giphy.image.gifUrl
+
+    }
+
+    private func loadAnimatedImage(fromUrl url: URL) {
+
     }
 
     private func configureConstraints() {
