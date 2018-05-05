@@ -51,7 +51,9 @@ class GifTableViewCell: UITableViewCell {
 
     private func loadAnimatedImage(from url: URL) {
         Loader.sharedInstance.loadData(with: url).subscribe(onNext: { [weak self] value in
-            self?.setupImageView(with: value)
+			DispatchQueue.main.async {
+				self?.setupImageView(with: value)
+			}
         }).disposed(by: disposeBag)
     }
 
