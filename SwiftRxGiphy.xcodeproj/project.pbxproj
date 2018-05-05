@@ -13,6 +13,7 @@
 		751AFF96206AC0F0000F241B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AFF95206AC0F0000F241B /* SearchViewController.swift */; };
 		7599D6C3209101B9000A57C7 /* AnimatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7599D6C2209101B9000A57C7 /* AnimatedImage.swift */; };
 		7599D6C520910232000A57C7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7599D6C420910232000A57C7 /* UIImageExtension.swift */; };
+		7599D6C72091087C000A57C7 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7599D6C62091087C000A57C7 /* Loader.swift */; };
 		759A0F7F206C0C8100935364 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A0F7E206C0C8100935364 /* CoreDataStack.swift */; };
 		759C5D4520768F8B0072DF2A /* SearchViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5D4420768F8B0072DF2A /* SearchViewInteractor.swift */; };
 		759C5D4B2076A3560072DF2A /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5D4A2076A3560072DF2A /* NetworkController.swift */; };
@@ -36,6 +37,7 @@
 		751AFF95206AC0F0000F241B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7599D6C2209101B9000A57C7 /* AnimatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImage.swift; sourceTree = "<group>"; };
 		7599D6C420910232000A57C7 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		7599D6C62091087C000A57C7 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		759A0F7E206C0C8100935364 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		759C5D4420768F8B0072DF2A /* SearchViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewInteractor.swift; sourceTree = "<group>"; };
 		759C5D4A2076A3560072DF2A /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				759C5D4E2076A3630072DF2A /* RequestType.swift */,
 				759C5D4A2076A3560072DF2A /* NetworkController.swift */,
 				B0C559462076C183005F99CB /* HttpMethod.swift */,
+				7599D6C62091087C000A57C7 /* Loader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				7599D6C3209101B9000A57C7 /* AnimatedImage.swift in Sources */,
 				759A0F7F206C0C8100935364 /* CoreDataStack.swift in Sources */,
 				75F458D5206C1F2100373CBB /* SearchView.swift in Sources */,
+				7599D6C72091087C000A57C7 /* Loader.swift in Sources */,
 				759C5D4D2076A3610072DF2A /* RequestBuilder.swift in Sources */,
 				75032B39206C051B00344249 /* Gifka.swift in Sources */,
 				B01F0FA72068367200AA7B50 /* AppDelegate.swift in Sources */,
