@@ -88,10 +88,12 @@ class SearchViewController: UIViewController {
 
         reactiveTable.willDisplayCell
             .subscribe(onNext: { cell, index in
-                guard let itemsCount = self.interactor?.items.value.count,
+                guard self.isRefreshing.value,
+                    let itemsCount = self.interactor?.items.value.count,
                     index.row == itemsCount - 1
                     else { return }
                 self.interactor?.setOffset(itemsCount)
+                self.isRefreshing.value = true
                 self.interactor?.fetch(with: self.searchTerm.value, isTrended: self.isTrended.value)
             })
             .disposed(by: disposeBag)
