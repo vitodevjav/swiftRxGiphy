@@ -9,6 +9,11 @@
 import Foundation
 
 enum GifRating: String {
-    case g
-    case p
+    case y = "y"
+    case g = "g"
+    case pg = "pg"
+    case pg13 = "pg-13"
+    case r = "r"
+    case no
+    case all = "all"
 }
