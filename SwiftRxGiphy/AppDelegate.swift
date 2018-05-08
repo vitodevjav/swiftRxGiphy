@@ -40,3 +40,19 @@ extension UIApplication {
         return base
     }
 }
+
+class MessageCenter {
+
+    static let sharedInstance = MessageCenter()
+
+    private init() {}
+
+    func showMessage(title: String, message: String, buttonTitle: String, completion: @escaping ()->()) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: { (_) in
+            completion()
+        }))
+        UIApplication.topViewController()?.present(alertController, animated: true, completion: nil)
+    }
+
+}
