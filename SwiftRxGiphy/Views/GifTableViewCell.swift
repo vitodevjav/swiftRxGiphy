@@ -28,7 +28,7 @@ class GifTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        contentView.addSubview(gifImageView)
+        addSubview(gifImageView)
         configureConstraints()
     }
 
@@ -66,10 +66,10 @@ class GifTableViewCell: UITableViewCell {
 
     private func configureConstraints() {
         let gifImageViewHeight = gifImageView.heightAnchor.constraint(equalToConstant: 0.0)
-        NSLayoutConstraint.activate([gifImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: viewInsets),
-                                     gifImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: viewInsets),
-                                     gifImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -viewInsets),
-                                     gifImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -viewInsets),
+        NSLayoutConstraint.activate([gifImageView.topAnchor.constraint(equalTo: topAnchor, constant: viewInsets),
+                                     gifImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: viewInsets),
+                                     gifImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -viewInsets),
+                                     gifImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -viewInsets),
                                      gifImageViewHeight,
                                      ])
 

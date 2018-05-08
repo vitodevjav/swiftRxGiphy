@@ -24,6 +24,8 @@ class SearchView: UIView {
         let tableView = UITableView()
         tableView.register(GifTableViewCell.self, forCellReuseIdentifier: GifTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.estimatedRowHeight = 200.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         return tableView
     }()
 
@@ -38,6 +40,7 @@ class SearchView: UIView {
 
         addSubview(tableView)
         addSubview(searchBar)
+        addSubview(trendedSwitch)
         configureConstraints()
     }
 
@@ -48,15 +51,15 @@ class SearchView: UIView {
     private func configureConstraints() {
         NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: viewInsets),
                                      searchBar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: viewInsets),
-                                     searchBar.trailingAnchor.constraint(equalTo: searchBar.leadingAnchor, constant: -viewInsets),
-                                     searchBar.heightAnchor.constraint(equalToConstant: searchBarHeight),
 
-                                     searchBar.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+                                     trendedSwitch.leadingAnchor.constraint(equalTo: searchBar.trailingAnchor, constant: viewInsets),
+                                     trendedSwitch.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -viewInsets),
+                                     trendedSwitch.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: viewInsets),
 
                                      tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: verticalViewMargin),
                                      tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: viewInsets),
                                      tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -viewInsets),
                                      tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: viewInsets)
-                                     ])
+            ])
     }
 }
