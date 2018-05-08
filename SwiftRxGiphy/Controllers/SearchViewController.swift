@@ -101,7 +101,7 @@ class SearchViewController: UIViewController {
                 self.interactor?.setOffset(itemsCount)
                 self.interactor?.fetch(with: self.searchTerm.value, isTrended: self.isTrended.value)
             })
-//            .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
 
         view.searchBar.rx.text.changed
             .throttle(0.3, scheduler: MainScheduler.instance)

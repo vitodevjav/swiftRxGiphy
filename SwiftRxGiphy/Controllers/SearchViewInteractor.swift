@@ -38,7 +38,7 @@ extension SearchViewInteractor: TableViewRxDataSource {
 				self.data.value += value
                 print(self.data.value.count)
 			})
-//            .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
     }
 }
 
