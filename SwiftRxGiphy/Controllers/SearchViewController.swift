@@ -14,6 +14,7 @@ import RxCocoa
 protocol TableViewRxDataSource {
     var items: Variable<[GIPHYData]> { get }
     func fetch (with searchTerm: String?, isTrended: Bool)
+    func setOffset(_ offset: Int)
 }
 
 class SearchViewController: UIViewController {
@@ -83,6 +84,16 @@ class SearchViewController: UIViewController {
                 }
                 return cell
             }
+            .disposed(by: disposeBag)
+
+        reactiveTable.willDisplayCell
+            .subscribe(onNext: { cell, index in
+                guard let itemsCount = self.interactor?.items.value.count,
+                    index.row == itemsCount - 1
+                    else { return }
+                self.interactor?.setOffset(itemsCount)
+                self.interactor?.fetch(with: self.searchTerm.value, isTrended: self.isTrended.value)
+            })
             .disposed(by: disposeBag)
 
         view.searchBar.rx.text.changed

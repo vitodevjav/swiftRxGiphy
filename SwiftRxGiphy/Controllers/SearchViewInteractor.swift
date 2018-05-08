@@ -24,6 +24,10 @@ class SearchViewInteractor {
 }
 
 extension SearchViewInteractor: TableViewRxDataSource {
+    func setOffset(_ offset: Int) {
+        currentOffset = offset
+    }
+
 	var items: Variable<[GIPHYData]> {
 		return data
 	}
