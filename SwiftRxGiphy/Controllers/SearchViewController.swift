@@ -21,6 +21,7 @@ class SearchViewController: UIViewController {
     private let interactor: TableViewRxDataSource?
     private var searchTerm: Variable<String>
     private var isTrended: Variable<Bool>
+    let isRefreshing: Variable<Bool> = Variable(false)
 
     init() {
         searchTerm = Variable("")
@@ -46,6 +47,32 @@ class SearchViewController: UIViewController {
     func configureView() {
 
         guard let view = view as? SearchView else { return }
+
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        view.tableView.refreshControl = refreshControl
+
+        refreshControl
+            .rx.controlEvent(.valueChanged)
+            .subscribe(onNext: {
+                refreshControl.beginRefreshing()
+                self.interactor?.fetch(with: self.searchTerm.value, isTrended: self.isTrended.value)
+                self.interactor?.items.asObservable()
+                    .observeOn(MainScheduler.instance)
+                    .subscribe(
+                        onNext: { (_) in
+                            refreshControl.endRefreshing()
+                    })
+                    .disposed(by: self.disposeBag)
+            })
+            .disposed(by: disposeBag)
+
+        isRefreshing
+            .asObservable()
+            .bind(onNext: { (isRefreshing) in
+//                view.tableView.reloadEmptyDataSet()
+            })
+            .disposed(by: disposeBag)
 
         let reactiveTable = view.tableView.rx
         interactor?.items.asObservable()
