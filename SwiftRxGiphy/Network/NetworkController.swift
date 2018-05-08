@@ -52,7 +52,7 @@ class NetworkController {
             }
             task.resume()
             return Disposables.create {
-                task.cancel()
+//                task.cancel()
             }
         }
     }

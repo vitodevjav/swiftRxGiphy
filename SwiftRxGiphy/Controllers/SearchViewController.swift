@@ -86,17 +86,22 @@ class SearchViewController: UIViewController {
             }
             .disposed(by: disposeBag)
 
+        interactor?.items.asObservable()
+            .subscribe(onNext: { value in
+                self.isRefreshing.value = false
+            })
+            .disposed(by: disposeBag)
+
         reactiveTable.willDisplayCell
             .subscribe(onNext: { cell, index in
-                guard self.isRefreshing.value,
+                guard !self.isRefreshing.value,
                     let itemsCount = self.interactor?.items.value.count,
                     index.row == itemsCount - 1
                     else { return }
                 self.interactor?.setOffset(itemsCount)
-                self.isRefreshing.value = true
                 self.interactor?.fetch(with: self.searchTerm.value, isTrended: self.isTrended.value)
             })
-            .disposed(by: disposeBag)
+//            .disposed(by: disposeBag)
 
         view.searchBar.rx.text.changed
             .throttle(0.3, scheduler: MainScheduler.instance)
