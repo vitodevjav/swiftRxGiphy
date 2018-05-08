@@ -25,10 +25,18 @@ class GifTableViewCell: UITableViewCell {
         return imageView
     }()
 
+    private lazy var trendedIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "trended")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         addSubview(gifImageView)
+        addSubview(trendedIcon)
         configureConstraints()
     }
 
