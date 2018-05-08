@@ -9,12 +9,10 @@
 /* Begin PBXBuildFile section */
 		75032B33206BF89E00344249 /* GifTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75032B32206BF89E00344249 /* GifTableViewCell.swift */; };
 		75032B39206C051B00344249 /* Gifka.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75032B38206C051B00344249 /* Gifka.swift */; };
-		75032B3E206C06F700344249 /* EntityDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75032B3C206C06F700344249 /* EntityDataModel.xcdatamodeld */; };
 		751AFF96206AC0F0000F241B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751AFF95206AC0F0000F241B /* SearchViewController.swift */; };
 		7599D6C3209101B9000A57C7 /* AnimatedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7599D6C2209101B9000A57C7 /* AnimatedImage.swift */; };
 		7599D6C520910232000A57C7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7599D6C420910232000A57C7 /* UIImageExtension.swift */; };
 		7599D6C72091087C000A57C7 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7599D6C62091087C000A57C7 /* Loader.swift */; };
-		759A0F7F206C0C8100935364 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A0F7E206C0C8100935364 /* CoreDataStack.swift */; };
 		759C5D4520768F8B0072DF2A /* SearchViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5D4420768F8B0072DF2A /* SearchViewInteractor.swift */; };
 		759C5D4B2076A3560072DF2A /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5D4A2076A3560072DF2A /* NetworkController.swift */; };
 		759C5D4D2076A3610072DF2A /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C5D4C2076A3610072DF2A /* RequestBuilder.swift */; };
@@ -33,12 +31,10 @@
 /* Begin PBXFileReference section */
 		75032B32206BF89E00344249 /* GifTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifTableViewCell.swift; sourceTree = "<group>"; };
 		75032B38206C051B00344249 /* Gifka.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gifka.swift; sourceTree = "<group>"; };
-		75032B3D206C06F700344249 /* EntityDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EntityDataModel.xcdatamodel; sourceTree = "<group>"; };
 		751AFF95206AC0F0000F241B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7599D6C2209101B9000A57C7 /* AnimatedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImage.swift; sourceTree = "<group>"; };
 		7599D6C420910232000A57C7 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		7599D6C62091087C000A57C7 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
-		759A0F7E206C0C8100935364 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		759C5D4420768F8B0072DF2A /* SearchViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewInteractor.swift; sourceTree = "<group>"; };
 		759C5D4A2076A3560072DF2A /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		759C5D4C2076A3610072DF2A /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
@@ -82,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				75032B38206C051B00344249 /* Gifka.swift */,
-				75032B3C206C06F700344249 /* EntityDataModel.xcdatamodeld */,
 				759C5D502076A43E0072DF2A /* ContentSize.swift */,
 				75F945E42076AF2D00380127 /* GifRating.swift */,
 			);
@@ -105,14 +100,6 @@
 				7599D6C420910232000A57C7 /* UIImageExtension.swift */,
 			);
 			path = GifSupporting;
-			sourceTree = "<group>";
-		};
-		759A0F7D206C0C6400935364 /* CoreDataStack */ = {
-			isa = PBXGroup;
-			children = (
-				759A0F7E206C0C8100935364 /* CoreDataStack.swift */,
-			);
-			path = CoreDataStack;
 			sourceTree = "<group>";
 		};
 		759C5D492076A33C0072DF2A /* Network */ = {
@@ -161,7 +148,6 @@
 				B0C559482076C97F005F99CB /* Serialization */,
 				759C5D492076A33C0072DF2A /* Network */,
 				75F458D3206C1F0A00373CBB /* Views */,
-				759A0F7D206C0C6400935364 /* CoreDataStack */,
 				75032B34206C019D00344249 /* Models */,
 				751AFF94206AC0A0000F241B /* Controllers */,
 				B01F0FA62068367200AA7B50 /* AppDelegate.swift */,
@@ -319,13 +305,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75032B3E206C06F700344249 /* EntityDataModel.xcdatamodeld in Sources */,
 				759C5D4520768F8B0072DF2A /* SearchViewInteractor.swift in Sources */,
 				7599D6C520910232000A57C7 /* UIImageExtension.swift in Sources */,
 				759C5D512076A43E0072DF2A /* ContentSize.swift in Sources */,
 				751AFF96206AC0F0000F241B /* SearchViewController.swift in Sources */,
 				7599D6C3209101B9000A57C7 /* AnimatedImage.swift in Sources */,
-				759A0F7F206C0C8100935364 /* CoreDataStack.swift in Sources */,
 				75F458D5206C1F2100373CBB /* SearchView.swift in Sources */,
 				7599D6C72091087C000A57C7 /* Loader.swift in Sources */,
 				759C5D4D2076A3610072DF2A /* RequestBuilder.swift in Sources */,
@@ -515,19 +499,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		75032B3C206C06F700344249 /* EntityDataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				75032B3D206C06F700344249 /* EntityDataModel.xcdatamodel */,
-			);
-			currentVersion = 75032B3D206C06F700344249 /* EntityDataModel.xcdatamodel */;
-			path = EntityDataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = B01F0F9B2068367100AA7B50 /* Project object */;
 }
