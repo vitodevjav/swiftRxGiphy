@@ -19,14 +19,15 @@ protocol TableViewRxDataSource {
 
 class SearchViewController: UIViewController {
 
-    private let interactor: TableViewRxDataSource?
-    var searchTerm: Variable<String>
-    let isRefreshing: Variable<Bool> = Variable(false)
+    private var interactor: TableViewRxDataSource?
+    private(set) var searchTerm: Variable<String>
+    let isRefreshing: Variable<Bool>
 
     init() {
         searchTerm = Variable("")
-        interactor = SearchViewInteractor()
+        isRefreshing = Variable(false)
         super.init(nibName: nil, bundle: nil)
+        interactor = SearchViewInteractor(controller: self)
     }
 
     let disposeBag = DisposeBag()
@@ -114,11 +115,5 @@ class SearchViewController: UIViewController {
 //            self.interactor?.fetch(with: self.searchTerm.value)
 //            }
 //            .disposed(by: disposeBag)
-        searchTerm.asObservable()
-            .subscribe {
-                _ in
-                self.interactor?.fetch(with: self.searchTerm.value)
-            }
-            .disposed(by: disposeBag)
     }
 }

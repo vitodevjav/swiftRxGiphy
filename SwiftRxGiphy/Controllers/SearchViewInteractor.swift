@@ -15,11 +15,22 @@ class SearchViewInteractor {
     private var currentOffset = 0
     private var contentSize: ContentSize = .defaultSize
     private var disposeBag = DisposeBag()
-
+    private weak var controller: SearchViewController?
     private let networkController = NetworkController()
 
-    init() {
+    init(controller: SearchViewController) {
         data = Variable([])
+        self.controller = controller
+
+        addObservers()
+    }
+
+    func addObservers() {
+        controller?.searchTerm.asObservable()
+            .subscribe(onNext: { value in
+                self.data.value.removeAll()
+                self.fetch(with: value)
+        }).disposed(by: disposeBag)
     }
 }
 
