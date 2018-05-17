@@ -16,7 +16,8 @@ class GifTableViewCell: UITableViewCell {
     
     private var isTrended = false
     private let viewInsets: CGFloat = 5.0
-    private var gifImageViewHeight: NSLayoutConstraint?
+    private var gifImageViewHeightConstraint: NSLayoutConstraint?
+    private let trendedIconHeight: CGFloat = 44.0
     private var disposeBag = DisposeBag()
 
     private lazy var gifImageView: UIImageView = {
@@ -46,14 +47,14 @@ class GifTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         isTrended = false
-        gifImageViewHeight?.constant = 0.0
+        gifImageViewHeightConstraint?.constant = 0.0
         disposeBag = DisposeBag()
     }
 
     public func configure(with giphy: GIPHYData) {
         guard let url = URL.init(string: giphy.image.gifUrl) else { return }
 
-        gifImageViewHeight?.constant = CGFloat(giphy.image.height)
+        gifImageViewHeightConstraint?.constant = CGFloat(giphy.image.height)
         loadAnimatedImage(from: url)
     }
 
@@ -73,14 +74,19 @@ class GifTableViewCell: UITableViewCell {
     }
 
     private func configureConstraints() {
-        let gifImageViewHeight = gifImageView.heightAnchor.constraint(equalToConstant: 0.0)
+        let gifImageViewHeightConstraint = gifImageView.heightAnchor.constraint(equalToConstant: 0.0)
         NSLayoutConstraint.activate([gifImageView.topAnchor.constraint(equalTo: topAnchor, constant: viewInsets),
-                                     gifImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: viewInsets),
-                                     gifImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -viewInsets),
+                                     gifImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: viewInsets),
+                                     gifImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -viewInsets),
                                      gifImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -viewInsets),
-                                     gifImageViewHeight,
+                                     gifImageViewHeightConstraint,
+
+                                     trendedIcon.trailingAnchor.constraint(equalTo: trailingAnchor),
+                                     trendedIcon.topAnchor.constraint(equalTo: topAnchor),
+                                     trendedIcon.heightAnchor.constraint(equalToConstant: trendedIconHeight),
+                                     trendedIcon.widthAnchor.constraint(equalToConstant: trendedIconHeight),
                                      ])
 
-        self.gifImageViewHeight = gifImageViewHeight
+        self.gifImageViewHeightConstraint = gifImageViewHeightConstraint
     }
 }
