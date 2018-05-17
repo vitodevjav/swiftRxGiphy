@@ -29,18 +29,11 @@ class SearchView: UIView {
         return tableView
     }()
 
-    var trendedSwitch: UISwitch = {
-        let switchView = UISwitch()
-        switchView.translatesAutoresizingMaskIntoConstraints = false
-        return switchView
-    }()
-
     init() {
         super.init(frame: .zero)
 
         addSubview(tableView)
         addSubview(searchBar)
-        addSubview(trendedSwitch)
         configureConstraints()
     }
 
@@ -51,10 +44,7 @@ class SearchView: UIView {
     private func configureConstraints() {
         NSLayoutConstraint.activate([searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: viewInsets),
                                      searchBar.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: viewInsets),
-
-                                     trendedSwitch.leadingAnchor.constraint(equalTo: searchBar.trailingAnchor, constant: viewInsets),
-                                     trendedSwitch.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -viewInsets),
-                                     trendedSwitch.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: viewInsets),
+                                     searchBar.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -viewInsets),
 
                                      tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: verticalViewMargin),
                                      tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: viewInsets),

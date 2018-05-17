@@ -81,8 +81,8 @@ class GifTableViewCell: UITableViewCell {
                                      gifImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -viewInsets),
                                      gifImageViewHeightConstraint,
 
-                                     trendedIcon.trailingAnchor.constraint(equalTo: trailingAnchor),
-                                     trendedIcon.topAnchor.constraint(equalTo: topAnchor),
+                                     trendedIcon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -viewInsets),
+                                     trendedIcon.topAnchor.constraint(equalTo: topAnchor, constant: viewInsets),
                                      trendedIcon.heightAnchor.constraint(equalToConstant: trendedIconHeight),
                                      trendedIcon.widthAnchor.constraint(equalToConstant: trendedIconHeight),
                                      ])

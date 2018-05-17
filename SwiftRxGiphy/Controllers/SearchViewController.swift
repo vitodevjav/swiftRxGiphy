@@ -13,20 +13,18 @@ import RxCocoa
 
 protocol TableViewRxDataSource {
     var items: Variable<[GIPHYData]> { get }
-    func fetch (with searchTerm: String?, isTrended: Bool)
+    func fetch (with searchTerm: String)
     func setOffset(_ offset: Int)
 }
 
 class SearchViewController: UIViewController {
 
     private let interactor: TableViewRxDataSource?
-    private var searchTerm: Variable<String>
-    private var isTrended: Variable<Bool>
+    var searchTerm: Variable<String>
     let isRefreshing: Variable<Bool> = Variable(false)
 
     init() {
         searchTerm = Variable("")
-        isTrended = Variable(false)
         interactor = SearchViewInteractor()
         super.init(nibName: nil, bundle: nil)
     }
@@ -57,7 +55,7 @@ class SearchViewController: UIViewController {
             .rx.controlEvent(.valueChanged)
             .subscribe(onNext: {
                 refreshControl.beginRefreshing()
-                self.interactor?.fetch(with: self.searchTerm.value, isTrended: self.isTrended.value)
+                self.interactor?.fetch(with: self.searchTerm.value)
                 self.interactor?.items.asObservable()
                     .observeOn(MainScheduler.instance)
                     .subscribe(
@@ -68,12 +66,12 @@ class SearchViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
-        isRefreshing
-            .asObservable()
-            .bind(onNext: { (isRefreshing) in
-//                view.tableView.reloadEmptyDataSet()
-            })
-            .disposed(by: disposeBag)
+//        isRefreshing
+//            .asObservable()
+//            .bind(onNext: { (isRefreshing) in
+////                view.tableView.reloadEmptyDataSet()
+//            })
+//            .disposed(by: disposeBag)
 
         let reactiveTable = view.tableView.rx
         interactor?.items.asObservable()
@@ -99,7 +97,7 @@ class SearchViewController: UIViewController {
                     index.row == itemsCount - 1
                     else { return }
                 self.interactor?.setOffset(itemsCount)
-                self.interactor?.fetch(with: self.searchTerm.value, isTrended: self.isTrended.value)
+                self.interactor?.fetch(with: self.searchTerm.value)
             })
             .disposed(by: disposeBag)
 
@@ -110,17 +108,16 @@ class SearchViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
-        view.trendedSwitch.rx.isOn
-            .subscribe(onNext: { [weak self] value in
-                self?.isTrended.value = value
-            })
-            .disposed(by: disposeBag)
-
-        Observable.combineLatest(searchTerm.asObservable(),
-                                 isTrended.asObservable(),
-                                 resultSelector: { _, _ in
-        }).subscribe { _ in
-            self.interactor?.fetch(with: self.searchTerm.value, isTrended: self.isTrended.value)
+//        Observable.combineLatest(searchTerm.asObservable(),
+//                                 resultSelector: { _, _ in
+//        }).subscribe { _ in
+//            self.interactor?.fetch(with: self.searchTerm.value)
+//            }
+//            .disposed(by: disposeBag)
+        searchTerm.asObservable()
+            .subscribe {
+                _ in
+                self.interactor?.fetch(with: self.searchTerm.value)
             }
             .disposed(by: disposeBag)
     }

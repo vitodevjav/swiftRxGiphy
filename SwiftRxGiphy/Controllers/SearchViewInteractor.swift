@@ -32,11 +32,11 @@ extension SearchViewInteractor: TableViewRxDataSource {
 		return data
 	}
 	
-    func fetch(with searchTerm: String?, isTrended: Bool) {
-		networkController.searchImages(requestType: .trending, requestedName: searchTerm, contentSize: contentSize, offset: currentOffset)
+    func fetch(with searchTerm: String = "") {
+        let requestType: RequestType = searchTerm.isEmpty ? .trending : .search
+		networkController.searchImages(requestType: requestType, requestedName: searchTerm, contentSize: contentSize, offset: currentOffset)
 			.subscribe(onNext: { value in
 				self.data.value += value
-                print(self.data.value.count)
 			})
             .disposed(by: disposeBag)
     }
